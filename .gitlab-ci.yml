@@ -1,6 +1,7 @@
 image: node:20
 
 stages:
+  - build
   - deploy
 
 variables:
@@ -14,6 +15,12 @@ cache:
 
 before_script:
   - npm install -g @azure/cli
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
 
 deploy:
   stage: deploy
