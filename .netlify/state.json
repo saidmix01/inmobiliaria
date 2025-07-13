@@ -1,0 +1,21 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Bucaramanga",
+			"country": {
+				"code": "CO",
+				"name": "Colombia"
+			},
+			"subdivision": {
+				"code": "SAN",
+				"name": "Santander Department"
+			},
+			"timezone": "America/Bogota",
+			"latitude": 7.1274,
+			"longitude": -73.1191,
+			"postalCode": "680001"
+		},
+		"timestamp": 1752433190915
+	},
+	"siteId": "50464df3-2f66-4ca4-9be4-5cc1a9560b2d"
+}

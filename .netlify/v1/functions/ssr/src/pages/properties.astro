@@ -1,0 +1,10 @@
+---
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import InmuebleList from '../components/InmuebleList.vue';
+---
+
+<main class="container my-5">
+  <h1 class="mb-4 text-center">Inmuebles disponibles</h1>
+  <InmuebleList client:load />
+</main>

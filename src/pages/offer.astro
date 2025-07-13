@@ -1,0 +1,23 @@
+<script setup>
+import OfferForm from './OfferForm.vue'
+import { ref, onMounted } from 'vue'
+
+const propertyId = ref(null)
+
+onMounted(() => {
+  const parts = window.location.pathname.split('/')
+  propertyId.value = parts[parts.length - 1] || null
+})
+</script>
+
+<template>
+  <main class="container my-5">
+    <h1 class="mb-4 text-center">Aplicar oferta</h1>
+    <OfferForm v-if="propertyId" :propertyId="propertyId" />
+    <div v-else class="text-center text-danger">ID de oferta no válido</div>
+  </main>
+</template>
+
+<style scoped>
+/* Estilos opcionales */
+</style>

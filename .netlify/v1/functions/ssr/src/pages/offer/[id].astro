@@ -1,0 +1,12 @@
+---
+export const prerender = false;
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import OfferForm from '../../components/OfferForm.vue';
+
+const { id } = Astro.params;
+---
+
+<main class="container my-5">
+  <OfferForm :propertyId="`${id}`" client:load />
+</main>
