@@ -1,0 +1,19 @@
+---
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import InmuebleList from '../components/InmuebleList.vue';
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inmuebles disponibles</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  </head>
+  <body>
+    <main class="container my-5">
+      <h1 class="mb-4 text-center">Inmuebles disponibles</h1>
+      <InmuebleList client:load />
+    </main>
+  </body>
+</html>
