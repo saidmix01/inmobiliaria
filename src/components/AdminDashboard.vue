@@ -104,8 +104,6 @@ const loading = ref(true)
 const error = ref(null)
 const selectedOffer = ref(null)
 
-const BASE_URL = `${import.meta.env.PUBLIC_API_URL}/api/offer`
-
 let modalInstance = null
 
 onMounted(() => {
@@ -124,7 +122,7 @@ const fetchOffers = async () => {
     }
 
     try {
-        const res = await fetch(`${BASE_URL}/admin/get_offers`, {
+        const res = await fetch(`https://inmobiliariabackend-cxa2eegkg0dpdjcs.centralus-01.azurewebsites.net/admin/get_offers`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -148,7 +146,7 @@ const fetchOffers = async () => {
 const viewDetails = async (offerId) => {
     const token = localStorage.getItem('token')
     try {
-        const res = await fetch(`${BASE_URL}/admin/get_offer_by_id`, {
+        const res = await fetch(`https://inmobiliariabackend-cxa2eegkg0dpdjcs.centralus-01.azurewebsites.net/admin/get_offer_by_id`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -178,7 +176,7 @@ const handleAction = async (offerId, action) => {
     if (!endpoint) return
 
     try {
-        const res = await fetch(`${BASE_URL}/admin/${endpoint}`, {
+        const res = await fetch(`https://inmobiliariabackend-cxa2eegkg0dpdjcs.centralus-01.azurewebsites.net/admin/${endpoint}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

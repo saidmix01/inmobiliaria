@@ -55,7 +55,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-const apiUrl = import.meta.env.PUBLIC_API_URL;
+const apiUrl = 'https://inmobiliariabackend-cxa2eegkg0dpdjcs.centralus-01.azurewebsites.net';
 const propertyId = ref('')
 const property = ref(null)
 const loading = ref(true)
