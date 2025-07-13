@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/node": "^9.3.0",
+    "@astrojs/vercel": "^8.2.1",
     "@astrojs/vue": "^5.1.0",
     "astro": "^5.11.0",
     "bootstrap": "^5.3.7",
