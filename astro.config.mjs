@@ -4,6 +4,9 @@ import node from '@astrojs/node';
 
 export default defineConfig({
   output: 'server',
-  adapter: node({ mode: 'standalone' }), // o 'middleware' si lo integras con Express
+  adapter: node({
+    mode: 'standalone',
+    port: process.env.PORT || 8080 // 👈 esta línea es clave
+  }),
   integrations: [vue()]
 });
