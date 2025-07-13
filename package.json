@@ -16,5 +16,8 @@
     "primeicons": "^7.0.0",
     "primevue": "^4.3.6",
     "vue": "^3.5.17"
+  },
+  "devDependencies": {
+    "@astrojs/vercel": "^8.2.1"
   }
 }
