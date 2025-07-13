@@ -94,7 +94,7 @@ const chunkArray = (array, size) => {
 
 const fetchProperties = async () => {
     try {
-        const res = await fetch(`https://inmobiliariabackend-cxa2eegkg0dpdjcs.centralus-01.azurewebsites.net/api/properties/get_properties`, {
+        const res = await fetch(`https://inmobiliariabackend-cxa2eegkg0dpdjcs.centralus-01.azurewebsites.net`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ type: 'all' })

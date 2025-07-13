@@ -26,8 +26,9 @@
           />
         </div>
 
-        <button type="submit" class="btn btn-primary w-100">
-          <i class="bi bi-box-arrow-in-right me-2"></i> Entrar
+        <button type="submit" class="btn btn-primary w-100" :disabled="isLoading">
+          <span v-if="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+          {{ isLoading ? 'Entrando...' : 'Entrar' }}
         </button>
 
         <div v-if="error" class="alert alert-danger mt-3 text-center">
@@ -40,15 +41,18 @@
 
 <script setup>
 import { ref } from 'vue'
-const apiUrl = import.meta.env.PUBLIC_API_URL;
+
+const apiUrl = import.meta.env.PUBLIC_API_URL
 const email = ref('')
 const password = ref('')
 const error = ref('')
+const isLoading = ref(false)
 
 const handleLogin = async () => {
   error.value = ''
+  isLoading.value = true
   try {
-    const res = await fetch(`https://inmobiliariabackend-cxa2eegkg0dpdjcs.centralus-01.azurewebsites.net/api/auth/login`, {
+    const res = await fetch(`https://inmobiliariabackend-cxa2eegkg0dpdjcs.centralus-01.azurewebsites.net`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: email.value, password: password.value })
@@ -64,6 +68,8 @@ const handleLogin = async () => {
     }
   } catch (err) {
     error.value = 'No se pudo conectar con el servidor'
+  } finally {
+    isLoading.value = false
   }
 }
 </script>
