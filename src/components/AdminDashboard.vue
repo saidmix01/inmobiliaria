@@ -138,7 +138,7 @@ const actionLoading = ref({
   reject: false
 })
 
-const BASE_URL = `https://inmobiliariabackend-cxa2eegkg0dpdjcs.centralus-01.azurewebsites.net`
+const BASE_URL = `https://inmobiliariabackend-cxa2eegkg0dpdjcs.centralus-01.azurewebsites.net/api/offer`
 
 let modalInstance = null
 
