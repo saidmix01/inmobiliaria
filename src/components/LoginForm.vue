@@ -40,7 +40,7 @@
 
 <script setup>
 import { ref } from 'vue'
-const apiUrl = 'https://inmobiliariabackend-cxa2eegkg0dpdjcs.centralus-01.azurewebsites.net';
+const apiUrl = import.meta.env.PUBLIC_API_URL;
 const email = ref('')
 const password = ref('')
 const error = ref('')

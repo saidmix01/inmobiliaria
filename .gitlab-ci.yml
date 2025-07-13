@@ -20,6 +20,7 @@ build:
   stage: build
   script:
     - npm install
+    - echo "PUBLIC_API_URL=$PUBLIC_API_URL" > .env.production
     - npm run build
 
 deploy:
