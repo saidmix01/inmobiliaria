@@ -3,10 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "start": "node ./dist/server/entry.mjs",
+    "build": "astro build"
+  },
+  "engines": {
+    "node": "20.x"
   },
   "dependencies": {
     "@astrojs/node": "^9.3.0",
