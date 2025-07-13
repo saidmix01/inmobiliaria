@@ -1,14 +1,11 @@
 image: node:20
 
 stages:
-  - build
   - deploy
 
 variables:
   AZURE_RESOURCE_GROUP: "inmobiliaria_project"
   AZURE_APP_NAME: "inmobiliariafront"
-  AZURE_WEBAPP_NAME: "inmobiliariafront"
-  AZURE_LOCATION: "Central US"
   NODE_ENV: production
 
 cache:
@@ -17,13 +14,6 @@ cache:
 
 before_script:
   - npm install -g @azure/cli
-  - npm install
-
-build:
-  stage: build
-  script:
-    - npm run build
-    - zip -r app.zip ./dist
 
 deploy:
   stage: deploy
@@ -34,4 +24,5 @@ deploy:
     - az login --service-principal -u "$AZURE_CLIENT_ID" -p "$AZURE_CLIENT_SECRET" --tenant "$AZURE_TENANT_ID"
     - az account set --subscription "$AZURE_SUBSCRIPTION_ID"
     - echo "Deploying to Azure Web App..."
+    - zip -r app.zip . -x "node_modules/*"
     - az webapp deploy --resource-group $AZURE_RESOURCE_GROUP --name $AZURE_APP_NAME --src-path app.zip --type zip
