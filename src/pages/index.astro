@@ -1,11 +1,16 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// sin JS ni imports
 ---
-
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="es">
+  <head>
+    <meta http-equiv="refresh" content="0; url=/properties" />
+    <title>Redireccionando...</title>
+    <script>
+      // fallback para navegadores antiguos
+      window.location.href = "/properties";
+    </script>
+  </head>
+  <body>
+    <p>Redireccionando a <a href="/properties">/properties</a>...</p>
+  </body>
+</html>
