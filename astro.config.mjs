@@ -1,16 +1,13 @@
 import { defineConfig } from 'astro/config'
 import vue from '@astrojs/vue'
-import node from '@astrojs/node'
+import vercel from '@astrojs/vercel/serverless' // 👈 reemplaza 'node'
 import 'dotenv/config'
 
 
 export default defineConfig({
   output: 'server',
-  adapter: node({ mode: 'standalone' }),
+  adapter: vercel(),
   integrations: [vue()],
-  server: {
-    host: '0.0.0.0' // ✅ Esta línea es clave
-  },
   vite: {
     define: {
       'import.meta.env.PUBLIC_API_URL': JSON.stringify(
