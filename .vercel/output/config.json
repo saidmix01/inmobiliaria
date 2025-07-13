@@ -20,7 +20,23 @@
 			"dest": "_render"
 		},
 		{
+			"src": "^/admin/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/login/?$",
+			"dest": "_render"
+		},
+		{
 			"src": "^/offer/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/properties/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/$",
 			"dest": "_render"
 		}
 	]
