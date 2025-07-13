@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node patch-port.js",
+    "build": "astro build",
     "start": "node ./dist/server/entry.mjs"
   },
   "engines": {
