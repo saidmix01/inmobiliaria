@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/vue": "^5.1.0",
+    "@astrojs/vercel": "^3.3.1",
     "astro": "^5.11.0",
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
