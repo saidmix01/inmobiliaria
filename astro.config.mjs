@@ -1,9 +1,21 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config'
+import vue from '@astrojs/vue'
+import node from '@astrojs/node'
+import 'dotenv/config'
 
-import vue from '@astrojs/vue';
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [vue()]
-});
+  output: 'server',
+  adapter: node({ mode: 'standalone' }),
+  integrations: [vue()],
+  server: {
+    host: '0.0.0.0' // ✅ Esta línea es clave
+  },
+  vite: {
+    define: {
+      'import.meta.env.PUBLIC_API_URL': JSON.stringify(
+        process.env.PUBLIC_API_URL
+      )
+    }
+  }
+})

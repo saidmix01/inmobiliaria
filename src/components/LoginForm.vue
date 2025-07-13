@@ -48,7 +48,7 @@ const error = ref('')
 const handleLogin = async () => {
   error.value = ''
   try {
-    const res = await fetch(`${apiUrl}/api/auth/login`, {
+    const res = await fetch(`https://inmobiliariabackend-cxa2eegkg0dpdjcs.centralus-01.azurewebsites.net/api/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: email.value, password: password.value })

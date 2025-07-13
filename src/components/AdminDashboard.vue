@@ -104,7 +104,7 @@ const loading = ref(true)
 const error = ref(null)
 const selectedOffer = ref(null)
 
-const BASE_URL = `${import.meta.env.PUBLIC_API_URL}/api/offer`
+const BASE_URL = `https://inmobiliariabackend-cxa2eegkg0dpdjcs.centralus-01.azurewebsites.net/api/offer`
 
 let modalInstance = null
 
