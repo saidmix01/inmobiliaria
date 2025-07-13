@@ -1,6 +1,7 @@
 image: node:20
 
 stages:
+  - build
   - deploy
 
 variables:
@@ -15,14 +16,26 @@ cache:
 before_script:
   - npm install -g @azure/cli
 
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+    # Verificamos que se haya generado dist/server/entry.mjs
+    - test -f dist/server/entry.mjs || (echo "❌ entry.mjs no fue generado" && exit 1)
+    # Preparamos el zip solo con lo necesario
+    - mkdir deploy
+    - cp -r dist package.json package-lock.json deploy/
+    - cd deploy
+    - zip -r ../app.zip .
+
 deploy:
   stage: deploy
   only:
     - main
   script:
-    - echo "Logging in to Azure..."
+    - echo "🔐 Logging in to Azure..."
     - az login --service-principal -u "$AZURE_CLIENT_ID" -p "$AZURE_CLIENT_SECRET" --tenant "$AZURE_TENANT_ID"
     - az account set --subscription "$AZURE_SUBSCRIPTION_ID"
-    - echo "Deploying to Azure Web App..."
-    - zip -r app.zip . -x "node_modules/*"
+    - echo "🚀 Deploying to Azure Web App..."
     - az webapp deploy --resource-group $AZURE_RESOURCE_GROUP --name $AZURE_APP_NAME --src-path app.zip --type zip
